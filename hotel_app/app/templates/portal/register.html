@@ -1,0 +1,10 @@
+<!doctype html>
+<title>Register</title>
+<h1>Guest Registration</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <p>{{ form.username.label }} {{ form.username() }}</p>
+  <p>{{ form.password.label }} {{ form.password() }}</p>
+  <p>{{ form.name.label }} {{ form.name() }}</p>
+  <p><input type="submit" value="Register"></p>
+</form>

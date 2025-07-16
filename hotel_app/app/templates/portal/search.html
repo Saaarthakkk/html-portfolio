@@ -1,0 +1,32 @@
+<!doctype html>
+<title>Search Rooms</title>
+<h1>Search Availability</h1>
+<form method="get">
+  {{ form.check_in.label }} {{ form.check_in() }}
+  {{ form.check_out.label }} {{ form.check_out() }}
+  {{ form.guests.label }} {{ form.guests() }}
+  <input type="submit" value="Search">
+</form>
+{% if rooms %}
+<table>
+<thead><tr><th>Room</th><th>Rate</th><th></th></tr></thead>
+<tbody>
+{% for room in rooms %}
+<tr>
+<td>{{ room.room_number }}</td>
+<td>{{ room.base_rate or room.room_type.default_rate }}</td>
+<td>
+  <form method="post" action="{{ url_for('portal.book') }}">
+    {{ form.hidden_tag() }}
+    <input type="hidden" name="room_id" value="{{ room.id }}">
+    <input type="hidden" name="check_in" value="{{ form.check_in.data }}">
+    <input type="hidden" name="check_out" value="{{ form.check_out.data }}">
+    <input type="hidden" name="guests" value="{{ form.guests.data }}">
+    <button type="submit">Book</button>
+  </form>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}

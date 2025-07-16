@@ -1,0 +1,25 @@
+<!doctype html>
+<title>Rate Cards</title>
+<h1>Rate Cards</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <p>{{ form.room_type_id.label }} {{ form.room_type_id() }}</p>
+  <p>{{ form.start_date.label }} {{ form.start_date() }}</p>
+  <p>{{ form.end_date.label }} {{ form.end_date() }}</p>
+  <p>{{ form.override_rate.label }} {{ form.override_rate() }}</p>
+  <p><input type="submit" value="Create"></p>
+</form>
+<table>
+<thead><tr><th>Room Type</th><th>Start</th><th>End</th><th>Rate</th></tr></thead>
+<tbody>
+{% for card in cards %}
+<tr>
+  <td>{{ card.room_type.name }}</td>
+  <td>{{ card.start_date }}</td>
+  <td>{{ card.end_date }}</td>
+  <td>{{ card.override_rate }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+

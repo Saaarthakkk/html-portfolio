@@ -1,0 +1,12 @@
+<!doctype html>
+<title>Check Out</title>
+<h1>Check Out</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div id="extras">
+    {% for extra in form.extras %}
+      <p>{{ extra.description.label }} {{ extra.description() }} {{ extra.amount.label }} {{ extra.amount() }}</p>
+    {% endfor %}
+  </div>
+  <button type="submit">Complete</button>
+</form>

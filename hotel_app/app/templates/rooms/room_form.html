@@ -1,0 +1,12 @@
+<!doctype html>
+<title>Create Room</title>
+<h1>Create Room</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <p>{{ form.room_number.label }} {{ form.room_number() }}</p>
+  <p>{{ form.room_type_id.label }} {{ form.room_type_id() }}</p>
+  <p>{{ form.floor.label }} {{ form.floor() }}</p>
+  <p>{{ form.base_rate.label }} {{ form.base_rate() }}</p>
+  <p><input type="submit" value="Create"></p>
+</form>
+

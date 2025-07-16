@@ -1,0 +1,25 @@
+<!doctype html>
+<title>Reservations</title>
+<h1>Reservations</h1>
+<table>
+<thead><tr><th>ID</th><th>Guest</th><th>Room</th><th>Check In</th><th>Check Out</th><th>Status</th><th></th><th></th></tr></thead>
+<tbody>
+{% for res in reservations %}
+<tr>
+<td>{{ res.id }}</td>
+<td>{{ res.guest.name }}</td>
+<td>{{ res.room.number }}</td>
+<td>{{ res.check_in }}</td>
+<td>{{ res.check_out }}</td>
+<td>{{ res.status.value }}</td>
+<td><a href="{{ url_for('reservations.edit', reservation_id=res.id) }}">Edit</a></td>
+<td>
+  <form method="post" action="{{ url_for('reservations.cancel', reservation_id=res.id) }}">
+    <button type="submit">Cancel</button>
+  </form>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<a href="{{ url_for('reservations.create') }}">New Reservation</a>

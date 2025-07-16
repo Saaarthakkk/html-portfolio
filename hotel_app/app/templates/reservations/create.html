@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Create Reservation</title>
+<h1>Create Reservation</h1>
+<form method="post">
+  <p>{{ form.guest_id.label }} {{ form.guest_id() }}</p>
+  <p>{{ form.room_id.label }} {{ form.room_id() }}</p>
+  <p>{{ form.check_in.label }} {{ form.check_in() }}</p>
+  <p>{{ form.check_out.label }} {{ form.check_out() }}</p>
+  <p><input type="submit" value="Create"></p>
+</form>
+<a href="{{ url_for('reservations.list_reservations') }}">Back to list</a>
