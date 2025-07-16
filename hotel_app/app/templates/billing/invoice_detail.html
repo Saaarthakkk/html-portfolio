@@ -1,0 +1,10 @@
+{% extends 'invoice.html' %}
+{% block extra %}
+<h2>Add Payment</h2>
+<form method="post" action="{{ url_for('billing.pay_invoice', invoice_id=invoice.id) }}">
+  {{ form.hidden_tag() }}
+  <p>{{ form.amount.label }} {{ form.amount() }}</p>
+  <p>{{ form.method.label }} {{ form.method() }}</p>
+  <p><button type="submit">Pay</button></p>
+</form>
+{% endblock %}

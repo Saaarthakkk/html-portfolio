@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Room Types</title>
+<h1>Room Types</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <p>{{ form.name.label }} {{ form.name() }}</p>
+  <p>{{ form.description.label }} {{ form.description() }}</p>
+  <p>{{ form.default_rate.label }} {{ form.default_rate() }}</p>
+  <p>{{ form.capacity.label }} {{ form.capacity() }}</p>
+  <p><input type="submit" value="Create"></p>
+</form>
+<ul>
+  {% for rt in types %}
+    <li>{{ rt.name }} - {{ rt.default_rate }}</li>
+  {% endfor %}
+</ul>

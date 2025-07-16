@@ -1,0 +1,18 @@
+<!doctype html>
+<title>Open Invoices</title>
+<h1>Open Invoices</h1>
+<table>
+  <thead>
+    <tr><th>ID</th><th>Reservation</th><th>Total</th><th></th></tr>
+  </thead>
+  <tbody>
+  {% for inv in invoices %}
+    <tr>
+      <td>{{ inv.id }}</td>
+      <td>{{ inv.reservation_id }}</td>
+      <td>{{ inv.total }}</td>
+      <td><a href="{{ url_for('billing.invoice_detail', invoice_id=inv.id) }}">View</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

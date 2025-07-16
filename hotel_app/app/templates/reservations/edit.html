@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Edit Reservation</title>
+<h1>Edit Reservation</h1>
+<form method="post">
+  <p>{{ form.check_in.label }} {{ form.check_in() }}</p>
+  <p>{{ form.check_out.label }} {{ form.check_out() }}</p>
+  <p><input type="submit" value="Update"></p>
+</form>
+<a href="{{ url_for('reservations.list_reservations') }}">Back to list</a>

@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Rooms</title>
+<h1>Rooms</h1>
+<table>
+<thead><tr><th>ID</th><th>Number</th><th>Type</th><th>Status</th><th>Floor</th></tr></thead>
+<tbody>
+{% for room in rooms %}
+<tr>
+<td>{{ room.id }}</td>
+<td>{{ room.room_number }}</td>
+<td>{{ room.room_type.name }}</td>
+<td>{{ room.status.value }}</td>
+<td>{{ room.floor }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>

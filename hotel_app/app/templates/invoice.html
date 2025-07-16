@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Invoice</title>
+<h1>Invoice {{ invoice.id }}</h1>
+<p>Reservation: {{ invoice.reservation_id }}</p>
+<p>Issued at: {{ invoice.issued_at }}</p>
+<table>
+<thead><tr><th>Description</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Room Charges</td><td>{{ invoice.reservation.total_cost }}</td></tr>
+{% for extra in invoice.extras %}
+<tr><td>{{ extra.description }}</td><td>{{ extra.amount }}</td></tr>
+{% endfor %}
+<tr><td><strong>Total</strong></td><td>{{ invoice.total }}</td></tr>
+</tbody>
+</table>
+{% block extra %}{% endblock %}
